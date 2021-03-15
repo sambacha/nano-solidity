@@ -1,0 +1,4 @@
+NatSpecSingleLine?
+         ::= ( '///' .* [#xd#xa] )+
+NatSpecMultiLine?
+         ::= '/**' .* '*/'

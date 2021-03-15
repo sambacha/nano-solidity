@@ -1,0 +1,1 @@
+elementaryTypeName ::= address|bool|string|var|Int|Uint|byte|Byte|Fixed|Ufixed

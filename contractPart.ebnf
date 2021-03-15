@@ -1,0 +1,1 @@
+contractPart ::= stateVariableDeclaration|usingForDeclaration|structDefinition|constructorDefinition|modifierDefinition|functionDefinition|eventDefinition|enumDefinition
