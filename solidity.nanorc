@@ -1,0 +1,55 @@
+# Solidity Highlighting for Nano 
+# version v0.2.0-draft 
+# 2023.1.3 
+# UPL 1.0
+
+syntax "solidity" "\.sol$"
+comment "//"
+
+header "^pragma solidity [\^\~\>\<]?=?[0-9\.]*;"
+
+
+color brightmagenta "^pragma.*$"
+color brightgreen "import|constructor"
+
+
+# struct
+color pink "\\b(struct)(\\s+([A-Za-z_]\\w*))?\\b"
+
+
+# <!-- TODO -->
+# color latte 
+
+
+ # <!-- global functions -->
+color brightcyan ":(blockhash|gasleft|abi|assert|require|revert|addmod|mulmod|keccak256|sha256|ripemd160|ecrecover|selfdestruct|type)\>"
+
+
+# Function definitions
+color magenta "function [a-z_0-9]+"
+
+# StateMutability
+
+color brightblue "pure|view|nonpayable|payable"
+
+# Hex numbers (used as value).
+color green ":[[:space:]]*\"#[0-9abcdefABCDEF]+\""
+
+
+# Natspec Comments
+color blue "///.*"
+color blue start="/\*" end="\*/"
+# natspec markers
+color brightcyan "@notice|@dev|@param|@returns|\?\?\?"
+# Reminders.
+color brightwhite,yellow "\<(FIXME|TODO|XXX)\>"
+
+
+# TODO Foundry Attributes 
+# color magenta start="cheatcodes\[" end="\]"
+
+# Strings.
+color brightyellow ""([^"\]|\\.)*"|'([^'\]|\\.)*'"
+
+# Trailing whitespace.
+color ,green "[[:space:]]+$"
