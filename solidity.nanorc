@@ -1,18 +1,58 @@
-#
-#
-#
+# Solidity Nano Highlighting
+# Version 0.2.0-draft
+# July 13, 2023
+# License: UPL-1.0
+# https://github.com/sambacha/nano-solidity
 
-# 
+syntax solidity "\.sol$"
 header "^pragma solidity [\^\~\>\<]?=?[0-9\.]*;"
+magic "Solidity"
 
-color green "\<
-color green "\<
+# External files
+color mint "\<(import)\>"
+
+# Strings and names of imported files.
+color brightyellow ""([^"]|\\")*"|#[[:blank:]]*import[[:blank:]]*<[^>]+>"
+
+#color green "\<"
+#color green "\<"
 
 # elementaryTypeName
-color yellow "\<(address|bool|string|var|Int|Uint|byte|Byte|Fixed|Ufixed)\>"
+
+# color yellow "\<(address|bool|string|var|Int|Uint|byte|Byte|Fixed|Ufixed)\>"
 
 # ReservedKeyword
 color purple "\<(abstract|after|case|catch|default|final|in|inline|let|match|null|of|relocatable|static|switch|try|typeof|abstract|override)\>"
+
+# Reminders.
+color brightwhite,yellow "\<(FIXME|TODO|XXX)\>"
+
+# ncolor brightmagenta "^pragma.*$"
+
+# Operators
+color bold,lagoon ":|\*|/|%|\+|-|\^|>|>=|<|<=|~=|=|\.\.|#|\<(not|and|or)\>"
+
+# Other things
+color crimson "\{(using|for|modifier|if|else|while|do |assembly|continue|break|throw|emit|var|let "\}"
+color crimson "\{(after|delete|switch|case|default|hex|abstract|catch|final| in |inline|match|of|relocatable|static|try|typeof|get\}"
+color crimson "\{(anonymous|constant|return |set\}"
+
+# Modifiers
+color brightmagenta "public|private|internal|external|pure|view|payable|override|virtual|memory|storage|calldata|indexed|type"
+
+# Types
+color green "\<("bool|address|string|struct|enum|event|mapping"\>"
+color green "\<("int|int8|int16|int24|int32|int40|int48|int56|int64|int72|int80|int88|int96|int104|int112|int120|int128|int136|int144|int152|int160|int168|int176|int184|int192|int200|int208|int216|int224|int232|int240|int248|int256"\>"
+color green "\<("uint|uint8|uint16|uint24|uint32|uint40|uint48|uint56|uint64|uint72|uint80|uint88|uint96|uint104|uint112|uint120|uint128|uint136|uint144|uint152|uint160|uint168|uint176|uint184|uint192|uint200|uint208|uint216|uint224|uint232|uint240|uint248|uint256"\>"
+color green "\<("bytes|bytes1|bytes2|bytes3|bytes4|bytes5|bytes6|bytes7|bytes8|bytes9|bytes10|bytes11|bytes12|bytes13|bytes14|bytes15|bytes16|bytes17|bytes18|bytes19|bytes20|bytes21|bytes22|bytes23|bytes24|bytes25|bytes26|bytes27|bytes28|bytes29|bytes30|bytes31|bytes32"\>"
+color magenta "\<fixed|ufixed|true|false|null"\>"
+
+# Octal/decimal and hexadecimal numbers.
+color cyan "\<([0-9]+|0x[[:xdigit:]]+)\>"
+
+# Decimal and hexadecimal numbers
+color red "\<[0-9]+(\.[0-9]*)?([Ee][+-]?[0-9]+)?\>"
+color red "\<0x[[:xdigit:]]+(\.[[:xdigit:]]*)?([Pp][+-]?[0-9]+)?\>"
 
 ## String
 color brightyellow "L?\"(\\"|[^"])*\""
@@ -26,15 +66,31 @@ color brightcyan "\\b(address|string\\d*|bytes\\d*|int\\d*|uint\\d*|bool|hash\\d
 # struct
 color pink "\\b(struct)(\\s+([A-Za-z_]\\w*))?\\b"
 
+# Units
+icolor red "wei|szabo|finney|ether|seconds|days|minutes|hours|weeks|years"
 
-## Trailing spaces
-color ,green "[[:space:]]+$"
+# Classes
+color cyan  "\<(function|class|contract|interface|library| is |as |returns|new|constructor|selfdestruct|extends|super|suicide)\>"
 
+# Function definitions
+color magenta "function [a-z_0-9]+"
 
-## Highlighting regular comments
-color brightblue "//.*"
-color brightblue start="/\*" end="\*/"
+# bifs
+color magenta "this|now|keccak256|(abi.(\w+\.)+?\w+)|blockhash|(block.(\w+\.)+?\w+)|require|(msg.(\w+\.)+?\w+)|(tx.(\w+\.)+?\w+)"
+color bold,purple "assert|revert|addmod|mulmod|sha256|sha3|ripemd160|ecrecover"
 
+# address functions
+color yellow "0x\w+\.(balance|transfer|send|call|callcode|delegatecall)"
+color yellow "0x\w{64}"
+
+# Comments
+
+comment "//"
+
+#color blue "(^|[[:space:]])//.*$"
+# Comments.
+color brightblue "(^|[[:blank:]])//.*"
+color brightblue start="/\**" end="\*/"
 
 # Highlighting for natspec comments
 color magenta "@param [a-zA-Z_][a-z0-9A-Z_]+"
