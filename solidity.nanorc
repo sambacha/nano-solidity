@@ -33,7 +33,7 @@ color brightwhite,yellow "\<(FIXME|TODO|XXX)\>"
 color bold,lagoon ":|\*|/|%|\+|-|\^|>|>=|<|<=|~=|=|\.\.|#|\<(not|and|or)\>"
 
 # Other things
-color crimson "\{(using|for|modifier|if|else|while|do |assembly|continue|break|throw|emit|var|let "\}"
+color crimson "\{(using|for|modifier|if|else|while|do |assembly|continue|break|throw|emit|var|let \}"
 color crimson "\{(after|delete|switch|case|default|hex|abstract|catch|final| in |inline|match|of|relocatable|static|try|typeof|get\}"
 color crimson "\{(anonymous|constant|return |set\}"
 
